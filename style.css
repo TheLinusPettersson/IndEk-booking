@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: 0;
+}
+
+/* text */
+body {
+  background: rgb(147, 102, 242);
+  background: linear-gradient(
+    160deg,
+    rgba(147, 102, 242, 1) 17%,
+    rgba(104, 25, 213, 1) 79%
+  );
+}
+
+h1 {
+  color: black;
+}
+p {
+  padding: 10px;
+  color: black;
+}
+
+/* navigaton bar */
+nav {
+  height: 60px;
+  width: 99%;
+  padding: 15px;
+  margin-bottom: 200px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0px;
+
+  position: fixed;
+  top: 0;
+  z-index: 1030; /* to prevent the navbar getting covered up by other content */
+}
+.nav-items {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.container {
+  width: 80%;
+  height: 80%;
+  padding: 10%;
+
+  display: flex;
+  flex-direction: row;
+  /*temp*/
+  border: 1px solid red;
+  margin-top: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media only screen and (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+  }
+  body {
+    background: black;
+  }
+}
+/* calendar contents */
+.container-calendar {
+  width: 600px;
+  height: 500px;
+  border-radius: 12px;
+  background-color: white;
+  overflow: hidden;
+}
+.container-menu {
+  background-color: white;
+  width: max-content;
+  height: fit-content;
+  border-radius: 12px;
+  padding: 10px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+.menu li {
+  list-style-type: none;
+}
+@media only screen and (max-width: 1000px) {
+  .menu li {
+    display: inline;
+  }
+}
+.menu button {
+  min-width: 200px;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 6px;
+  color: black;
+  background-color: #c3b1e1;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+}
