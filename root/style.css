@@ -7,8 +7,8 @@
 html,
 body {
   height: 100%;
+  overflow: hidden;
 }
-
 body {
   background: rgb(147, 102, 242);
   background: linear-gradient(
@@ -17,20 +17,12 @@ body {
     rgba(104, 25, 213, 1) 79%
   );
 }
-
-h1 {
-  color: black;
-}
-p {
-  color: black;
-}
-
-/* navigaton bar */
 nav {
   width: 100% - 2rem;
-  background-color: white;
+
   position: relative;
   place-items: center;
+  overflow: visible;
 
   display: flex;
   justify-content: space-between;
@@ -40,8 +32,55 @@ nav {
   text-decoration: none;
   display: inline-block;
 }
-/* navigationbar */
-/* content */
+
+.navbar-title {
+  font-size: x-large;
+  font-weight: bold;
+  color: white;
+}
+p {
+  color: black;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropbtn {
+  background-color: transparent;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
 .container {
   width: 80vw;
   height: 80vh;
@@ -49,7 +88,10 @@ nav {
 
   display: flex;
   flex-direction: row;
-  /*temp*/
+  align-items: center;
+  justify-content: center;
+
+  /*temp TODO: border bahavign wierd*/
   border: 1px solid red;
   margin-top: 20px;
   position: absolute;
@@ -57,10 +99,9 @@ nav {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 /* menu */
 .menu {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   width: max-content;
   height: fit-content;
   border-radius: 12px;
@@ -71,38 +112,42 @@ nav {
 .menu li {
   list-style-type: none;
 }
-
 .menu button {
   min-width: 200px;
   font-size: 16px;
   margin: 4px 2px;
   border-radius: 6px;
   color: black;
-  background-color: rgb(111 41 219 / 49%);
+  background-color: transparent;
   border: none;
   padding: 10px;
+}
+.menu li :hover {
+  background-color: lightgray;
+}
+.btn-select {
+  background-color: white;
 }
 
 /* calendar */
 .calendar-container {
   background: #fff;
-  width: 450px;
-  height: 450px;
+  width: 60%;
+  height: 60%;
+  min-width: fit-content;
+  min-height: fit-content;
   border-radius: 10px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 }
-
 .calendar-container header {
   display: flex;
   align-items: center;
   padding: 25px 30px 10px;
   justify-content: space-between;
 }
-
 header .calendar-navigation {
   display: flex;
 }
-
 header .calendar-navigation span {
   height: 38px;
   width: 38px;
@@ -115,53 +160,43 @@ header .calendar-navigation span {
   color: black;
   font-size: 1.6rem;
 }
-
 .calendar-navigation span:last-child {
   margin-right: -10px;
 }
-
 header .calendar-navigation span:hover {
   background: #f2f2f2;
 }
-
 header .calendar-current-date {
   font-weight: 500;
   font-size: 1.45rem;
 }
-
 .calendar-body {
   padding: 20px;
 }
-
 .calendar-body ul {
   list-style: none;
   flex-wrap: wrap;
   display: flex;
   text-align: center;
 }
-
 .calendar-body .calendar-dates {
   margin-bottom: 20px;
 }
-
 .calendar-body li {
   width: calc(100% / 7);
   font-size: 1.07rem;
   color: #414141;
 }
-
 .calendar-body .calendar-weekdays li {
   cursor: default;
   font-weight: 500;
 }
-
 .calendar-body .calendar-dates li {
   margin-top: 30px;
   position: relative;
   z-index: 1;
   cursor: pointer;
 }
-
 .calendar-dates li.inactive {
   color: #aaa;
 }
@@ -169,7 +204,6 @@ header .calendar-current-date {
 .calendar-dates li.active {
   color: #fff;
 }
-
 .calendar-dates li::before {
   position: absolute;
   content: "";
@@ -185,12 +219,19 @@ header .calendar-current-date {
 .calendar-dates li.active::before {
   background: #6332c5;
 }
-
 .calendar-dates li:not(.active):hover::before {
   background: #e4e1e1;
 }
+.loggo {
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  overflow: hidden;
+  z-index: -2;
 
-/* media */
+  max-width: 100%;
+  max-height: 100%;
+}
 
 @media only screen and (max-width: 1000px) {
   .container {

@@ -7,16 +7,22 @@
     <title>Industriell Ekonomi | Bokning</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
     <nav>
-      <div><h1>Bokning</h1></div>
-      <a class="nav-items" href="/"><p>Bokningspolicy</p></a>
+      <div class="navbar-title">Bokning</div>
+      <div class="dropdown">
+        <button class="dropbtn">Bokningspolicy</button>
+        <div class="dropdown-content">
+          <a href="#">Option 1</a>
+          <a href="#">Option 2</a>
+          <a href="#">Option 3</a>
+        </div>
+      </div>
     </nav>
     <div class="container">
       <ul class="menu">
-        <li><button>Sektionsbilen</button></li>
-        <li><button>Sektionshögtalaren</button></li>
+        <li><button class="btn">Sektionsbilen</button></li>
+        <li><button>Sektionshogtalaren</button></li>
         <li><button>Ljudsystemet</button></li>
         <li><button>...</button></li>
         <li><button>...</button></li>
@@ -34,7 +40,6 @@
             </span>
           </div>
         </header>
-
         <div class="calendar-body">
           <ul class="calendar-weekdays">
             <li>Sun</li>
@@ -48,6 +53,7 @@
           <ul class="calendar-dates"></ul>
         </div>
       </div>
+      <img src="/img/i_logga_transparent.png" alt="home" class="loggo" />
       <script src="script.js"></script>
     </div>
   </body>
