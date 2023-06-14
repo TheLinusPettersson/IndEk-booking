@@ -103,3 +103,14 @@ prenexIcons.forEach((icon) => {
     manipulate();
   });
 });
+// toggle between buttons
+var button = document.querySelectorAll(".menu button");
+
+for (var i = 0; i < button.length; i++) {
+  button[i].onclick = function () {
+    button.forEach(function (btn) {
+      btn.style = "";
+    });
+    this.style.background = "white";
+  };
+}
