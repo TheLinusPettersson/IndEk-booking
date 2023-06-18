@@ -27,10 +27,11 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
+  z-index: 1;
 }
-.nav-items {
+.navbar-items {
   text-decoration: none;
-  display: inline-block;
+  display: grid;
 }
 
 .navbar-title {
@@ -41,46 +42,54 @@ nav {
 p {
   color: black;
 }
-.dropdown {
+.dropdown-arrow {
+  height: 17px;
+  width: 17px;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+    brightness(102%) contrast(102%);
+
   position: relative;
-  display: inline-block;
+  top: -1px;
+  left: -1px;
+}
+.dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
 }
 .dropbtn {
   background-color: transparent;
   color: white;
-  padding: 16px;
+  padding: 12px;
   font-size: 16px;
   font-weight: bold;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+
+  background-color: transparent;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
+  color: white;
+  padding: 8px 12px;
   text-decoration: none;
   display: block;
 }
 .dropdown:hover .dropdown-content {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+  text-decoration: underline;
 }
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
-}
+
 .container {
   width: 80vw;
   height: 80vh;
@@ -101,26 +110,28 @@ p {
 }
 /* menu */
 .menu {
-  background-color: rgba(255, 255, 255, 0.8);
-  width: max-content;
-  height: fit-content;
-  border-radius: 12px;
-  padding: 10px;
-  margin-right: 12px;
-  margin-bottom: 12px;
+  background-color: rgba(255, 255, 255, 0.9);
+  height: 500px;
+  width: 600px fixed;
+  border-radius: 12px 0 0 12px;
+
+  position: relative;
+  left: 10px;
+  z-index: -1;
 }
 .menu li {
+  position: relative;
+  top: 25%;
   list-style-type: none;
 }
 .menu button {
   min-width: 200px;
   font-size: 16px;
-  margin: 4px 2px;
-  border-radius: 6px;
   color: black;
   background-color: transparent;
   border: none;
   padding: 10px;
+  text-align: left;
 }
 .menu li :hover {
   background-color: lightgray;
@@ -128,12 +139,11 @@ p {
 .btn-select {
   background-color: white;
 }
-
 /* calendar */
 .calendar-container {
   background: #fff;
-  width: 60%;
-  height: 60%;
+  width: 600px;
+  height: 500px;
   min-width: fit-content;
   min-height: fit-content;
   border-radius: 10px;
@@ -200,7 +210,6 @@ header .calendar-current-date {
 .calendar-dates li.inactive {
   color: #aaa;
 }
-
 .calendar-dates li.active {
   color: #fff;
 }
@@ -215,7 +224,6 @@ header .calendar-current-date {
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
-
 .calendar-dates li.active::before {
   background: #6332c5;
 }
@@ -231,6 +239,9 @@ header .calendar-current-date {
 
   max-width: 100%;
   max-height: 100%;
+  filter: brightness(0) saturate(100%);
+  filter: invert(53%) sepia(85%) saturate(6167%) hue-rotate(245deg)
+    brightness(100%) contrast(101%);
 }
 
 @media only screen and (max-width: 1000px) {
@@ -242,6 +253,12 @@ header .calendar-current-date {
     background: black;
   }
   */
+  .menu {
+    height: 600px fixed;
+    border-radius: 12px 12px 0 0;
+    left: 0;
+    top: 10px;
+  }
   .menu li {
     display: inline;
   }
