@@ -103,14 +103,28 @@ prenexIcons.forEach((icon) => {
     manipulate();
   });
 });
-// toggle between buttons
-var button = document.querySelectorAll(".menu button");
+// toggle between menue buttons
+var menuBtn = document.querySelectorAll(".menu li");
 
-for (var i = 0; i < button.length; i++) {
-  button[i].onclick = function () {
-    button.forEach(function (btn) {
+for (var i = 0; i < menuBtn.length; i++) {
+  menuBtn[i].onclick = function () {
+    menuBtn.forEach(function (btn) {
       btn.style = "";
+      btn.classList.remove("selected");
     });
     this.style.background = "white";
+    this.classList.add("selected");
+  };
+}
+
+var calBtn = document.querySelectorAll(".calendar-dates li");
+
+for (var i = 0; i < calBtn.length; i++) {
+  calBtn[i].onclick = function () {
+    calBtn.forEach(function (btn) {
+      btn.style = "";
+      btn.classList.remove("selected");
+    });
+    this.classList.add("selected");
   };
 }
